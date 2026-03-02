@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register • Web App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">◎</div>
+        <div>
+          <div class="appname">PopularApp</div>
+          <div class="tagline">Create your account</div>
+        </div>
+      </div>
+
+      <div class="progressWrap" aria-label="Form completion">
+        <div class="progressText" id="progressText">0% complete</div>
+        <div class="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progressFill" id="progressFill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="card">
+      <h1>Registration</h1>
+      <p class="sub">Interactive form with validations and feedback (front-end only).</p>
+
+      <form id="registerForm" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="e.g., Alex Johnson" autocomplete="name" />
+            <div class="hint">At least 2 words recommended.</div>
+            <div class="error" id="fullNameError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="e.g., alexj" autocomplete="username" />
+            <div class="hint">3–15 chars, letters/numbers/underscore.</div>
+            <div class="error" id="usernameError" aria-live="polite"></div>
+          </div>
+
+          <div class="field emailField">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="e.g., alex@gmail.com" autocomplete="email" />
+            <div class="hint">We’ll suggest common domains as you type.</div>
+
+            <div class="suggestions" id="emailSuggestions" role="listbox" aria-label="Email suggestions"></div>
+            <div class="error" id="emailError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="e.g., (555) 123-4567" autocomplete="tel" />
+            <div class="hint">Auto-formats as you type.</div>
+            <div class="error" id="phoneError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="row">
+              <input id="password" name="password" type="password" placeholder="Create a strong password" autocomplete="new-password" />
+              <button type="button" class="ghost" id="togglePassword" aria-label="Show password">Show</button>
+            </div>
+
+            <div class="meter" aria-label="Password strength meter">
+              <div class="meterFill" id="meterFill"></div>
+            </div>
+            <div class="hint" id="passwordHint">Use 8+ chars with upper/lower, number, symbol.</div>
+            <div class="error" id="passwordError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-type your password" autocomplete="new-password" />
+            <div class="error" id="confirmPasswordError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" autocomplete="country-name">
+              <option value="">Select…</option>
+              <option>Australia</option>
+              <option>Bangladesh</option>
+              <option>Canada</option>
+              <option>India</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+            </select>
+            <div class="error" id="countryError" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="13" max="120" placeholder="e.g., 20" />
+            <div class="hint">Must be 13+ to register.</div>
+            <div class="error" id="ageError" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="checks">
+          <label class="check">
+            <input type="checkbox" id="terms" />
+            <span>I agree to the Terms & Privacy Policy</span>
+          </label>
+          <div class="error" id="termsError" aria-live="polite"></div>
+
+          <label class="check">
+            <input type="checkbox" id="newsletter" />
+            <span>Send me product updates (optional)</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="ghost" id="clearDraft">Clear draft</button>
+          <button type="submit" id="submitBtn" disabled>Create account</button>
+        </div>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <small>Front-end only • Focus: JS events + validation feedback</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
